@@ -1,13 +1,11 @@
-const fibonacci = (n) => {
-  if (n <= 1) {
-    return n;
+function isPrime(n) {
+  if (n <= 1) return false;
+  if (n <= 3) return true;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  let i = 5;
+  while (i * i <= n) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+    i += 6;
   }
-  let prev = 0;
-  let curr = 1;
-  for (let i = 2; i <= n; i++) {
-    const next = prev + curr;
-    prev = curr;
-    curr = next;
-  }
-  return curr;
-};
+  return true;
+}
